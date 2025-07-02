@@ -1,6 +1,5 @@
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("style.css");
-
+  // Yazı koleksiyonu
   eleventyConfig.addCollection("posts", function(collectionApi) {
     const posts = collectionApi.getFilteredByGlob("posts/*.md");
 
@@ -20,15 +19,6 @@ module.exports = function(eleventyConfig) {
     return posts;
   });
 
-  return {
-    dir: {
-      input: ".",
-      includes: "_includes"
-    }
-  };
-};
-
-
   // Etiket koleksiyonu
   eleventyConfig.addCollection("tagsList", function(collection) {
     let tagSet = new Set();
@@ -41,3 +31,12 @@ module.exports = function(eleventyConfig) {
     });
     return [...tagSet];
   });
+
+  return {
+    dir: {
+      input: ".",
+      includes: "_includes",
+      output: "_site"
+    }
+  };
+};
