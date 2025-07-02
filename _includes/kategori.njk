@@ -18,8 +18,9 @@
       {{ content | safe }}
     </section>
     <section>
+      {% set kategoriKey = "category_" ~ kategori_adi %}
       <ul>
-        {% for post in collections["category_" + kategori_adi] %}
+        {% for post in collections[kategoriKey] %}
           <li>
             <a href="{{ post.url }}">{{ post.data.title }}</a> - <small>{{ post.date | date: "%Y-%m-%d" }}</small>
           </li>
