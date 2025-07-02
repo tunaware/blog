@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+  crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <title>{{ title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/style.css" />
+  <meta name="description" content="Kişisel blog sayfanız">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<style>
+  body.dark {
+    background-color: #111;
+    color: #f0f0f0;
+  }
+  .dark header, .dark footer {
+    background-color: #222;
+    color: #ccc;
+  }
+</style>
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+    localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+  }
+  window.onload = () => {
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+    }
+  };
+</script>
+
+</head>
+<body>
+  <header>
+    <h1><a href="/">Benim Blogum</a></h1>
+    <nav>
+      <a href="/">Ana Sayfa</a>
+    </nav>
+  </header>
+  <main>
+    <p><strong>Kategori:</strong> {{ category | default("Genel") }}</p>
+    {{ content | safe }}
+  </main>
+  <footer>
+    <p>&copy; 2025 - Tüm hakları saklıdır.</p>
+  </footer>
+</body>
+</html>

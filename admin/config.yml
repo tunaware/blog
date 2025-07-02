@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "posts"
+    label: "Blog Yazıları"
+    folder: "posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Tarih", name: "date", widget: "datetime"}
+      - {label: "Kategori", name: "category", widget: "string", required: false}
+      - {label: "Etiketler", name: "tags", widget: "list", required: false}
+      - {label: "İçerik", name: "body", widget: "markdown"}
